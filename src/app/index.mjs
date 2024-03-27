@@ -1,3 +1,5 @@
+import { PostCard } from "../components/post-card/index.mjs";
+import { PostsWrapper } from "../components/posts-wrapper/index.mjs";
 import { api } from "../services/api.mjs";
 
 export class App {
@@ -14,6 +16,8 @@ export class App {
       this.appNode.append("Oops! Something went wrong");
       return;
     }
-    this.appNode.append(JSON.stringify(posts));
+    const postsCards = posts.map((data) => new PostCard(data));
+    const postsWrapper = new PostsWrapper(postsCards);
+    this.appNode.append(postsWrapper.node);
   }
 }
