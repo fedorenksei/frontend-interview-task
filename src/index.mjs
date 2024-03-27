@@ -1,7 +1,5 @@
+import { App } from "./app/index.mjs";
 import "./styles.css";
 
-console.log("jojo");
-
-document.getElementById("app").innerHTML = `
-<h1>Hello JavaScript!</h1>
-`;
+const app = new App(document.getElementById("app"));
+app.run();
